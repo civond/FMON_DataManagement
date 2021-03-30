@@ -1,8 +1,9 @@
 import os;import os.path, time;import pandas as pd;import datetime;from operator import itemgetter;from collections import OrderedDict;
 #Dorian Yeh <3
 
-mouseList = ['2139','2140','2141','2148','2150','2151','2152','2153','2154','2155'];
+mouseList = ['2139','2140','2141','2148','2150','2151','2152','2153','2154','2155']; #this script will output all session data into two spreadsheets
 
+#---------------Lists below for outputting DAILY stats in a .txt file only-----------------------------------------------------------------------
 trainer1Mice = ['2153','2154'] #trainer1 mice ***ONLY***
 hundredMice = ['2151']; #100-0 mice
 ninetyMice = ['2152']; #90-10 mice
@@ -17,11 +18,9 @@ def GetFilePaths():
             experimentPath = os.path.join(subDirectory, experimentType);
             if os.path.isdir(experimentPath):
                 for session in os.listdir(experimentPath):
-                    #subpath = os.path.join(experimentPath,session);
                     path = os.path.join(experimentPath,session,'notes.txt');
                     if os.path.isfile(path):
                         filePaths.append(path);
-
     for path in filePaths: #opens/parses through notes.txt
         print(path)
         f = open(path); array = f.read().split('\n'); i = 0;
@@ -30,9 +29,10 @@ def GetFilePaths():
             date_split.remove('');
         month = date_split[1]; datetime_object = datetime.datetime.strptime(month, "%b");month_number = datetime_object.month;
         Numerized_Date = str(month_number) + '.'+ str(date_split[2])+'.'+str(date_split[4])+' '+str(date_split[3]);
-
         if array[5][0] == 'I': #array[x][y], x = the line where weight should be in notes.txt, y = the 'y'th character of array[x]
             weightSplit = array[5].split(': '); weight = weightSplit[1];
+            if weightSplit[1] == '':
+                weight = 'NaN';
         else: #if notes.txt does not contain weight
             weight = 'NaN';
         if weight == 'NaN': #if the notes.txt file doesn't have a line for weight, then everything will be shifted one line
@@ -88,12 +88,12 @@ def trainer1_GetFilePaths():
             date_split.remove('');
         month = date_split[1]; datetime_object = datetime.datetime.strptime(month, "%b");month_number = datetime_object.month;
         Numerized_Date = str(month_number) + '.'+ str(date_split[2])+'.'+str(date_split[4])+' '+str(date_split[3]);
-
         if array[5][0] == 'I': #array[x][y], x = the line where weight should be in notes.txt, y = the 'y'th character of array[x]
             weightSplit = array[5].split(': '); weight = weightSplit[1];
+            if weight == '':
+                weight = 'NaN';
         else: #if notes.txt does not contain weight
             weight = 'NaN';
-
         while array[i] != 'PERFORMANCE': #performance statistics
             i = i + 1;
         i = i + 1; rawData = [];
@@ -105,7 +105,6 @@ def trainer1_GetFilePaths():
             split = item.split(': '); runningTotal += int(split[1]);
         directorySplit = path.split('\\'); mouse = directorySplit[4].split('_'); experiment = directorySplit[5]; trialNumber = int(directorySplit[6]);
         mouseNumber = mouse[1]; tempData = []; actualData = [];
-
         actualData.extend([mouseNumber,weight,experiment,trialNumber,runningTotal,Numerized_Date]);
         totalTrials.append(actualData);
     dataframe = pd.DataFrame(
