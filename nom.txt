@@ -1,1 +1,1 @@
-this is a test of autopushing 2
+i got this to work
