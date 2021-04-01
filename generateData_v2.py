@@ -1,4 +1,5 @@
 import os;import os.path, time;import pandas as pd;import datetime;from operator import itemgetter;from collections import OrderedDict;
+from github import Github;from github import InputGitTreeElement;
 #Dorian Yeh <3
 
 mouseList = ['2139','2140','2141','2148','2150','2151','2152','2153','2154','2155']; #this script will output all session data into two spreadsheets
@@ -175,3 +176,4 @@ def outputStatsFile():
 GetFilePaths()
 trainer1_GetFilePaths()
 outputStatsFile()
+from githubPush import *;
