@@ -62,8 +62,9 @@ def GetFilePaths():
         elif experiment == '90-10':
             actualData.extend([mouseNumber,weight,experiment,smell,trialNumber,tempData[2],tempData[3],tempData[6],tempData[7],Numerized_Date]);
         totalTrials.append(actualData);
+        sorted_totalTrials = sorted(totalTrials, key=itemgetter(4))
     dataframe = pd.DataFrame(
-        totalTrials,
+        sorted_totalTrials,
         columns=[
             'ID','initalWeight','experimentType','odorant+concentration','trial',
             'totalCorrect','totalAttempts','controlCorrect','controlAttempts','datetime'
@@ -108,8 +109,9 @@ def trainer1_GetFilePaths():
         mouseNumber = mouse[1]; tempData = []; actualData = [];
         actualData.extend([mouseNumber,weight,experiment,trialNumber,runningTotal,Numerized_Date]);
         totalTrials.append(actualData);
+        sorted_totalTrials = sorted(totalTrials, key=itemgetter(3))
     dataframe = pd.DataFrame(
-        totalTrials,
+        sorted_totalTrials,
         columns=[
             'ID','initalWeight','experimentType','trial',
             'totalPokes','datetime'
@@ -173,7 +175,5 @@ def outputStatsFile():
             textFile.write('\n');
     textFile.close();print('Daily Stats Generated!');
 
-GetFilePaths()
-trainer1_GetFilePaths()
-outputStatsFile()
+GetFilePaths();trainer1_GetFilePaths();outputStatsFile();
 from githubPush import *;
