@@ -1,4 +1,4 @@
-ID,initalWeight,experimentType,odorant+concentration,trial,totalCorrect,totalAttempts,controlCorrect,controlAttempts,datetime
+ID,initalWeight,experimentType,odorantConc,trial,totalCorrect,totalAttempts,controlCorrect,controlAttempts,datetime
 2139,15.5,100-0,pinene(7) 1,1,7,23,0,3,11.12.2020 13:05:00
 2140,16.0,100-0,pinene(7) 1,1,37,76,4,9,11.13.2020 14:22:19
 2140,16.2,90-10,pinene(7) 1,1,51,83,0,0,11.20.2020 14:19:38
