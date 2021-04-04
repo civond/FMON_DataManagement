@@ -4,3 +4,4 @@
 
 
 <br><br>Note to self: pls fix certain notes.txt files to not output DI water and make things consistent~!!!
+![] (figures/100-0_vanillin)
