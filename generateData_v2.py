@@ -1,14 +1,15 @@
-import os;import os.path, time;import pandas as pd;import datetime;from operator import itemgetter;from collections import OrderedDict;
-from github import Github;from github import InputGitTreeElement;
+import os;import os.path, time;import pandas as pd;import datetime;
+from operator import itemgetter;from collections import OrderedDict;
 #Dorian Yeh <3
 
 mouseList = ['2139','2140','2141','2148','2150','2151','2152','2153','2154','2155']; #this script will output all session data into two spreadsheets
 
 #---------------Lists below for outputting DAILY stats in a .txt file only-----------------------------------------------------------------------
-trainer1Mice = ['2153','2154'] #trainer1 mice ***ONLY***
-hundredMice = ['2151']; #100-0 mice
+trainer1Mice = ['2153'] #trainer1 mice ***ONLY***
+hundredMice = ['2151','2154']; #100-0 mice
 ninetyMice = ['2152']; #90-10 mice
 interleavedMice = [] #90-10 interleaved mice
+
 #-------------------------------Don't touch anything below this pls--------------------------------------------------------------------------
 directoryName = 'D:\FMON_Project\data\goodmice';
 def GetFilePaths():
@@ -58,18 +59,24 @@ def GetFilePaths():
             for item in tempSplit:
                 tempData.append(item);
         if experiment == '100-0': #if you want data for sessions other than the ones listed below, just add it in its own elif statement - assuming it is in experimentTypes (see above).
-            actualData.extend([mouseNumber,weight,experiment,smell,trialNumber,tempData[0],tempData[1],tempData[8],tempData[9],Numerized_Date]);
+            actualData.extend([mouseNumber,weight,experiment,odor[1],concentration[1],trialNumber,tempData[0],tempData[1],tempData[8],tempData[9],Numerized_Date]);
         elif experiment == '90-10':
-            actualData.extend([mouseNumber,weight,experiment,smell,trialNumber,tempData[2],tempData[3],tempData[6],tempData[7],Numerized_Date]);
+            actualData.extend([mouseNumber,weight,experiment,odor[1],concentration[1],trialNumber,tempData[2],tempData[3],tempData[6],tempData[7],Numerized_Date]);
         totalTrials.append(actualData);
         sorted_totalTrials = sorted(totalTrials, key=itemgetter(4))
     dataframe = pd.DataFrame(
         sorted_totalTrials,
         columns=[
-            'ID','initalWeight','experimentType','odorant+concentration','trial',
+            'ID','initalWeight','experimentType','odor','concentration','trial',
             'totalCorrect','totalAttempts','controlCorrect','controlAttempts','datetime'
         ]);
+    dataframe['odor'] = dataframe['odor'].replace(['pinene(7)'], 'pinene');
+    dataframe['odor'] = dataframe['odor'].replace(['2-pe', '2-PE','2-Pe'], '2pe');
+    dataframe['odor'] = dataframe['odor'].replace(['vanillin(7)', 'Vanillin','vanillin (7)'], 'vanillin');
+    dataframe['odor'] = dataframe['odor'].replace(['Benzaldehyde'], 'benzaldehyde');
+    dataframe['concentration'] = dataframe['concentration'].replace(['DI H2O'], '1');
     dataframe.to_csv('FMON_performanceData.csv', index=False);print('goodmice CSV Generated!');
+    #print(dataframe.odor.unique()); #lists all unique values
 
 def trainer1_GetFilePaths():
     totalTrials = []; filePaths = []; #if more experiments are added, just make sure it is an entry in experimentTypes
@@ -123,7 +130,7 @@ def outputStatsFile():
     hundredDict = {};ninetyDict = {};hundredList = [];ninetyList = [];interleavedDict = {};interleavedList = [];t1List=[];t1Dict={};
     for line in elsemice:
         if line == '\n': continue;
-        mouse, initialWeight,experimentType,odorantconcentration,trial,totalCorrect,totalAttempts,controlCorrect,controlAttempts,datetime = line.strip('\n').split(',');
+        mouse, initialWeight,experimentType,odor,concentration,trial,totalCorrect,totalAttempts,controlCorrect,controlAttempts,datetime = line.strip('\n').split(',');
         if mouse == 'mouse': continue;
         if mouse in hundredMice:  #refer to the top
             if mouse == mouse and experimentType == '100-0':
