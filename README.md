@@ -4,18 +4,18 @@
 
 <h2>Overall</h2>
 
-<img src="figures/100-0_General.png" width="550px" title="general">
-<img src="figures/100-0_Pinene.png" width="550px" title="pinene">
-<img src="figures/100-0_2PE.png" width="550px" title="2pe">
-<img src="figures/100-0_Vanillin.png" width="550px" title="vanillin">
+<img src="figures/100-0_General.png" width="600px" title="general">
+<img src="figures/100-0_Pinene.png" width="600px" title="pinene">
+<img src="figures/100-0_2PE.png" width="600px" title="2pe">
+<img src="figures/100-0_Vanillin.png" width="600px" title="vanillin">
 
 <h2>Individual Mice</h2>
-<img src="figures/individual_MiceFigures/2139_100Performance.png" width="550px">
-<img src="figures/individual_MiceFigures/2140_100Performance.png" width="550px">
-<img src="figures/individual_MiceFigures/2141_100Performance.png" width="550px">
-<img src="figures/individual_MiceFigures/2148_100Performance.png" width="550px">
-<img src="figures/individual_MiceFigures/2150_100Performance.png" width="550px">
-<img src="figures/individual_MiceFigures/2151_100Performance.png" width="550px">
-<img src="figures/individual_MiceFigures/2152_100Performance.png" width="550px">
-<img src="figures/individual_MiceFigures/2153_100Performance.png" width="550px">
-<img src="figures/individual_MiceFigures/2154_100Performance.png" width="550px">
+<img src="figures/individual_MiceFigures/2139_100Performance.png" width="600px">
+<img src="figures/individual_MiceFigures/2140_100Performance.png" width="600px">
+<img src="figures/individual_MiceFigures/2141_100Performance.png" width= "600px">
+<img src="figures/individual_MiceFigures/2148_100Performance.png" width="600px">
+<img src="figures/individual_MiceFigures/2150_100Performance.png" width="600px">
+<img src="figures/individual_MiceFigures/2151_100Performance.png" width="600px">
+<img src="figures/individual_MiceFigures/2152_100Performance.png" width="600px">
+<img src="figures/individual_MiceFigures/2153_100Performance.png" width="600px">
+<img src="figures/individual_MiceFigures/2154_100Performance.png" width="600px">
