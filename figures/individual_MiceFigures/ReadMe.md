@@ -1,4 +1,4 @@
-Performance figures for FMON data
+Performance figures for individual mice <br/>
 <img src="2139_100Performance.png" width="600">
 <img src="2140_100Performance.png" width="600">
 <img src="2141_100Performance.png" width="600">
