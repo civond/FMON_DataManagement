@@ -4,11 +4,11 @@
 (graphs generated via matplotlib) <br>
 
 <h2>Performance figures for individual mice<h2/> <br/>
-<img src="individual_MiceFigures/2151_100Performance.png" width="600">
 <img src="individual_MiceFigures/2152_100Performance.png" width="600">
 <img src="individual_MiceFigures/2153_100Performance.png" width="600">
 <img src="individual_MiceFigures/2154_100Performance.png" width="600">
 <img src="individual_MiceFigures/2155_100Performance.png" width="600">
+ <img src="individual_MiceFigures/2151_100Performance.png" width="600">
 <br/><br/>
 
 <h3>Amanda's Mice<h3/>
