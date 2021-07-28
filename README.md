@@ -1,7 +1,7 @@
-# FMON_DataManagement
-<br> FMON data pipeline. 
-<br> This repository receives pushes when generateData_v2.py is executed on FMON computer.<br>
-(graphs generated via matplotlib) <br>
+FMOS performance data pipeline. 
+<br/> To visualize historical mouse performance data, this Python script parses through raw data files on FMOS computer and compiles relevant information into one centralized spreadsheet. Then, this spreadsheet is used to generate vaious graphs and daily performance statistics using matplotlibs and pandas. <br/>
+
+<br> Figures are then pushed to this repository when generateData_v2.py is executed on FMOS computer.<br>
 
 <h2>Performance figures for individual mice<h2/> <br/>
 <img src="individual_MiceFigures/2152_100Performance.png" width="600">
