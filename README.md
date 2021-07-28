@@ -1,4 +1,4 @@
-FMOS performance data pipeline. 
+<h2>FMOS performance data pipeline.</h2> 
 <br/> To visualize historical mouse performance data, this Python script parses through raw data files on FMOS computer and compiles relevant information into one centralized spreadsheet. Then, this spreadsheet is used to generate vaious graphs and daily performance statistics using matplotlibs and pandas. <br/>
 
 <br> Figures are then pushed to this repository when generateData_v2.py is executed on FMOS computer.<br>
