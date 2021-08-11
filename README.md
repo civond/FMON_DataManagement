@@ -4,7 +4,7 @@
 <br> Figures are then pushed to this repository via OAuth token when generateData_v2.py is executed on FMOS computer.<br>
 
 <h2>Usage</h2>
-<br/> Simply generateData_v2.py on the FMOS computer!! No additional steps.
+<br/> Simply run generateData_v2.py on the FMOS computer!! No additional steps.
 
 <h2>Performance figures for individual mice<h2/> <br/>
 <img src="individual_MiceFigures/2152_100Performance.png" width="600">
